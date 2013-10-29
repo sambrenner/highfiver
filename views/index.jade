@@ -6,7 +6,7 @@ block content
   h2 View High Fives
   a(href="/highfives") All High Fives
 
-  h3 High Fives by Player
+  h3 High Fives by Player (doesn't work right now)
   ul
     li
       a(href="/highfives/adam") Adam
@@ -14,7 +14,3 @@ block content
       a(href="/highfives/sam") Sam
     li
       a(href="/highfives/xuedi") Xuedi
-
-  h3 Add New High Five with curl
-  p
-    span(class="code") curl -i -X POST -H 'Content-Type: application/json' -d '{"player_id":"sam", "strength":10}' http://localhost:3000/highfives/new
