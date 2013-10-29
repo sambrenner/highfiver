@@ -1,6 +1,7 @@
 var express = require('express'),
     routes = require('./routes'),
     highfives = require('./routes/highfives'),
+    players = require('./routes/players'),
     http = require('http'),
     path = require('path');
 
@@ -28,6 +29,9 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/highfives', highfives.findAll);
 app.get('/highfives/:id', highfives.findById);
+app.get('/players', players.findAll);
+app.get('/players/seed', players.seed);
+app.get('/players/:id', players.findById);
 app.post('/highfives/new', highfives.addNew);
 
 // Start server

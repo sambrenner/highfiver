@@ -1,5 +1,5 @@
 var dbName = 'highfivegame_db';
-var collectionName = 'highfives';
+var collectionName = 'highfive';
 
 var DB = require('mongodb').Db,
     Connection = require('mongodb').Connection,
@@ -36,6 +36,20 @@ HighFiveProvider.prototype.findById = function(id, callback) {
       highfive_collection.findOne({'_id': ObjectID(id)}, function(error, highfive) {
         if(error) callback(error);
         else callback(null, highfive);
+      });
+    }
+  });
+};
+
+HighFiveProvider.prototype.findByPlayerName = function(playerId, callback) {
+  //access collection
+  this.db.collection(collectionName, function(error, highfive_collection) {
+    if(error) callback(error);
+    else {
+      //filter for high fives with matching player_id
+      highfive_collection.find({'player_id': playerId}).toArray(function(error, results) {
+        if(error) callback(error);
+        else callback(null, results);
       });
     }
   });
