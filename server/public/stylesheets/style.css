@@ -6,5 +6,6 @@ h2 { font-size: 140%; }
 h3 { font-size: 120%; }
 
 #main_content { width: 100%; }
+#main_content .db_section { margin-bottom: 12px; }
 
 .code { font-family: monospace; }

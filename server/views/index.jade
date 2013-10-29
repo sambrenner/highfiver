@@ -3,13 +3,19 @@ extends layout
 block content
   h1= title
 
-  h2 View High Fives
-  ul
-    li
+  div(class="db_section")
+    h3 View High Fives
+    p
       a(href="/highfives") All
-    li
-      a(href="/highfives/adam") Adam
-    li
-      a(href="/highfives/sam") Sam
-    li
-      a(href="/highfives/xuedi") Xuedi
+
+  div(class="db_section")
+    h3 View Players
+    ul
+      li
+        a(href="/players/") All
+      li
+        a(href="/players/adam") Adam
+      li
+        a(href="/players/sam") Sam
+      li
+        a(href="/players/xuedi") Xuedi
