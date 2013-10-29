@@ -16,7 +16,10 @@ Skip any of the following steps if you have the thing already.
 * Run mongo: `mongod`
 * Load application: <http://localhost:3000/>
 
-To POST a new High Five: `curl -i -X POST -H 'Content-Type: application/json' -d '{"player_id":"sam", "strength":10}' http://localhost:3000/highfives/new`
+To POST a new High Five: 
+```
+curl -i -X POST -H 'Content-Type: application/json' -d '{"player_id":"sam", "strength":10}' http://localhost:3000/highfives/new
+```
 
 ### Deploying the server
 
