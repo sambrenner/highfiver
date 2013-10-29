@@ -26,7 +26,7 @@ app.configure('development', function(){
 
 // Setup routes
 app.get('/', routes.index);
-app.get('/highfives', highfives.findAll;
+app.get('/highfives', highfives.findAll);
 app.get('/highfives/:id', highfives.findById);
 app.post('/highfives/new', highfives.addNew);
 
