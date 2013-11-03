@@ -14,9 +14,6 @@ HighFiveProvider = function(uri) {
   DB.connect(uri, function(error, db) {
     that.db = db;
   });
-
-  //this.db = new DB(dbName, new Server(host, port, {auto_reconnect: true}));
-  //this.db.open(function(error,db) {});
 };
 
 HighFiveProvider.prototype.findAll = function(callback) {

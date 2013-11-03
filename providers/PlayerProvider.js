@@ -13,9 +13,6 @@ PlayerProvider = function(uri) {
   DB.connect(uri, function(error, db) {
     that.db = db;
   });
-
-  //this.db = new DB(dbName, new Server(host, port, {auto_reconnect: true}));
-  //this.db.open(function(error,db) {});
 };
 
 PlayerProvider.prototype.findAll = function(callback) {
