@@ -34,7 +34,18 @@ app.get('/players/seed', players.seed);
 app.get('/players/:id', players.findById);
 app.post('/highfives/new', highfives.addNew);
 
-// Start server
-http.createServer(app).listen(app.get('port'), function(){
+// Start server with socket.io
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);
+
+server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+// socket.io events
+io.sockets.on('connection', function(socket) {
+  console.log('Socket Connected', socket);
+});
+
+
+
