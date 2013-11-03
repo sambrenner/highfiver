@@ -44,5 +44,10 @@ server.listen(app.get('port'), function(){
 
 // socket.io events
 io.sockets.on('connection', function(socket) {
-  console.log('Socket Connected', socket);
+  console.log('Socket Client Connected');
+  io.sockets.emit('msg', 'we have a new friend!');
+
+  socket.on('msg', function(msg) {
+    socket.broadcast.emit('msg', msg);
+  });
 });
