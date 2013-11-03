@@ -29,7 +29,7 @@ exports.seed = function(req, res) {
 exports.addHighFive = function(req, res) {
   playerProvider.addHighFive(req.params.id, req.body, function(error, highfives) {
     if(error) res.send(error);
-    else res.send(highfives);
+    else res.send('{"success": "' + highfives + ' highfive(s) added" }');
   });
 };
 
