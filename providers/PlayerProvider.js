@@ -48,6 +48,8 @@ PlayerProvider.prototype.addHighFive = function(id, highfive, callback) {
   this.db.collection(collectionName, function(error, player_collection) {
     if(error) callback(error);
     else {
+      highfive.player_id = id;
+
       player_collection.update({
         '_id': id
       },{
