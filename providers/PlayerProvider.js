@@ -43,6 +43,29 @@ PlayerProvider.prototype.findById = function(id, callback) {
   });
 };
 
+PlayerProvider.prototype.addHighFive = function(id, highfive, callback) {
+  //access collection
+  this.db.collection(collectionName, function(error, player_collection) {
+    if(error) callback(error);
+    else {
+      player_collection.update({
+        '_id': id
+      },{
+        '$push': {
+          'highfives': highfive
+        },
+        '$inc' : {
+          'score': 1
+        }
+      },
+      function(error, highfives) {
+        if(error) callback(error);
+        else callback(null, highfives);
+      });
+    }
+  });
+}
+
 PlayerProvider.prototype.seed = function(callback) {
   this.db.collection(collectionName, function(error, player_collection) {
     if(error) {
@@ -64,21 +87,22 @@ PlayerProvider.prototype.seed = function(callback) {
           {
             "_id": "adam",
             "name": "Adam Quinn",
-            "score": 0
+            "score": 0,
+            "highfives": []
           },
           {
             "_id": "sam",
             "name": "Sam Brenner",
-            "score": 0
+            "score": 0,
+            "highfives": []
           },
           {
             "_id": "xuedi",
             "name": "Xuedi Chen",
-            "score": 0
+            "score": 0,
+            "highfives": []
           }
         ];
-
-        console.log(players);
 
         player_collection.insert(players, function() {
           callback(null, players);

@@ -1,7 +1,7 @@
 var express = require('express'),
     routes = require('./routes'),
-    highfives = require('./routes/highfives'),
     players = require('./routes/players'),
+    leaderboard = require('./routes/leaderboard'),
     http = require('http'),
     path = require('path');
 
@@ -27,12 +27,12 @@ app.configure('development', function(){
 
 // Setup routes
 app.get('/', routes.index);
-app.get('/highfives', highfives.findAll);
-app.get('/highfives/:id', highfives.findById);
 app.get('/players', players.findAll);
 app.get('/players/seed', players.seed);
 app.get('/players/:id', players.findById);
-app.post('/highfives/new', highfives.addNew);
+app.get('/leaderboard', leaderboard.leaderboard);
+
+app.post('/players/:id/highfives/add', players.addHighFive);
 
 // Start server with socket.io
 var server = http.createServer(app);
@@ -46,6 +46,3 @@ server.listen(app.get('port'), function(){
 io.sockets.on('connection', function(socket) {
   console.log('Socket Connected', socket);
 });
-
-
-
