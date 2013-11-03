@@ -1,16 +1,21 @@
-var dbName = 'playergame_db';
-var collectionName = 'player';
-
 var DB = require('mongodb').Db,
     Connection = require('mongodb').Connection,
     Server = require('mongodb').Server,
     BSON = require('mongodb').BSON,
     ObjectID = require('mongodb').ObjectID;
 
+var collectionName = 'player';
+
 // Constructor. Creates and opens the DB connection
-PlayerProvider = function(host, port) {
-  this.db = new DB(dbName, new Server(host, port, {auto_reconnect: true}));
-  this.db.open(function(error,db) {});
+PlayerProvider = function(uri) {
+  var that = this;
+
+  DB.connect(uri, function(error, db) {
+    that.db = db;
+  });
+
+  //this.db = new DB(dbName, new Server(host, port, {auto_reconnect: true}));
+  //this.db.open(function(error,db) {});
 };
 
 PlayerProvider.prototype.findAll = function(callback) {

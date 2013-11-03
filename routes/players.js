@@ -2,11 +2,13 @@
 Instantiate new providers. Since we will use the player information to then gather highfive data,
 we will need both.
 */
+var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/highfivegame_db';
+
 var PlayerProvider = require('../providers/PlayerProvider').PlayerProvider;
-var playerProvider = new PlayerProvider('localhost', 27017);
+var playerProvider = new PlayerProvider(mongoUri);
 
 var HighFiveProvider = require('../providers/HighFiveProvider').HighFiveProvider;
-var highFiveProvider = new HighFiveProvider('localhost', 27017);
+var highFiveProvider = new HighFiveProvider(mongoUri);
 
 exports.findAll = function(req, res) {
   playerProvider.findAll(function(error, players) {

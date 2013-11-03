@@ -2,8 +2,10 @@
 Instantiate new HighFiveProvider. HighFiveProvider communicates between our
 app and the database.
 */
+var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/highfivegame_db';
+
 var HighFiveProvider = require('../providers/HighFiveProvider').HighFiveProvider;
-var highFiveProvider = new HighFiveProvider('localhost', 27017);
+var highFiveProvider = new HighFiveProvider(mongoUri);
 
 exports.findAll = function(req, res) {
   highFiveProvider.findAll(function(error, highfives) {

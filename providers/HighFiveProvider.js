@@ -8,9 +8,15 @@ var DB = require('mongodb').Db,
     ObjectID = require('mongodb').ObjectID;
 
 // Constructor. Creates and opens the DB connection
-HighFiveProvider = function(host, port) {
-  this.db = new DB(dbName, new Server(host, port, {auto_reconnect: true}));
-  this.db.open(function(error,db) {});
+HighFiveProvider = function(uri) {
+  var that = this;
+
+  DB.connect(uri, function(error, db) {
+    that.db = db;
+  });
+
+  //this.db = new DB(dbName, new Server(host, port, {auto_reconnect: true}));
+  //this.db.open(function(error,db) {});
 };
 
 HighFiveProvider.prototype.findAll = function(callback) {
