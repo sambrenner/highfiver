@@ -21,7 +21,7 @@ PlayerProvider.prototype.findAll = function(callback) {
     if(error) callback(error);
     else {
       //get everything out of it and return
-      player_collection.find().toArray(function(error, results) {
+      player_collection.find().sort({'_id': 1}).toArray(function(error, results) {
         if(error) callback(error);
         else callback(null, results);
       });
