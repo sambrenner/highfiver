@@ -14,11 +14,12 @@ Skip any of the following steps if you have the thing already.
 * Install mongodb (took a while for me): `brew install mongodb`
 * Run application: `node app`
 * Run mongo: `mongod`
+* Seed game players: <http://localhost:3000/players/seed>
 * Load application: <http://localhost:3000/>
 
 To POST a new High Five: 
 ```
-curl -i -X POST -H 'Content-Type: application/json' -d '{"player_id":"sam", "strength":10}' http://localhost:3000/highfives/new
+curl -i -X POST -H 'Content-Type: application/json' -d '{"strength":10}' http://localhost:3000/players/sam/highfives/add
 ```
 
 ### Deploying the server
