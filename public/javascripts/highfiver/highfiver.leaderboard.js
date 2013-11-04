@@ -37,7 +37,7 @@ highfiver.leaderboard = (function(window,document) {
     _$overlay.removeClass('hidden');
   };
 
-  var _handleGameEnd = function(winner) {
+  var _handleGameOver = function(winner) {
     self.updateScores(function() {
       _$overlay.addClass('hidden');
     });
