@@ -1,11 +1,37 @@
-body { font-family: Helvetica, Arial, sans-serif; padding: 5% 5% 0; }
+body { background-color: #444; color: #EFEFEF; font-family: Helvetica, Arial, sans-serif; padding: 30px 3% 0; text-align: center; }
 h1, h2, h3, h4 { font-weight: bold; }
 h2, h3, h4, p { margin-bottom: 6px; } 
 h1 { margin-bottom: 16px; font-size: 160%; }
 h2 { font-size: 140%; }
 h3 { font-size: 120%; }
 
-#main_content { width: 100%; }
+#main_content { position: relative; width: 100%; }
 #main_content .db_section { margin-bottom: 12px; }
 
-.code { font-family: monospace; }
+header h1 { font-size: 300%; }
+
+#scores .face { display: block; height: 407px; text-indent: -9999em; width: 400px; }
+#scores .score { background-color: #F30; border-radius: 50px; bottom: 0; display: inline-block; font-size: 400%; font-weight: bold; padding: 30px; position: absolute; right: 20px; }
+#scores ul li { display: inline-block; padding-bottom: 30px; position: relative; }
+
+#scores .adam.happy .face { background: url('/images/adam_happy.png') 0 0 no-repeat; }
+#scores .sam.happy .face { background: url('/images/sam_happy.png') 0 0 no-repeat; }
+#scores .xuedi.happy .face { background: url('/images/xuedi_happy.png') 0 0 no-repeat; }
+
+#scores .adam.sad .face { background: url('/images/adam_sad.png') 0 0 no-repeat; }
+#scores .sam.sad .face { background: url('/images/sam_sad.png') 0 0 no-repeat; }
+#scores .xuedi.sad .face { background: url('/images/xuedi_sad.png') 0 0 no-repeat; }
+
+#highfive_overlay { background-color: #444; height: 100%; left: 0; position: absolute; top: 0; width: 100%; }
+#highfive_overlay h1 { color: #F30; font-size: 400%; text-transform: uppercase; }
+#highfive_overlay ul { bottom: 0; position: fixed; }
+#highfive_overlay ul li { display: inline-block; position: relative; }
+#highfive_overlay ul li .message { background-color: #FFF; border-radius: 20px; color: #222; padding: 20px; position: absolute; top: 50px; }
+#highfive_overlay ul li .message:after { border-color: transparent #FFF transparent transparent; border-style: solid; border-width: 0 15px 20px 0; bottom: -20px; content: ""; display: block; height: 0; max-width: 100px; position: absolute; right: 28px; width: 0; }
+#highfive_overlay ul li .runner { height: 462px; text-indent: -9999em; width: 400px; }
+
+#highfive_overlay .adam .runner { background: url('/images/adam_run.gif') 0 0 no-repeat; }
+#highfive_overlay .sam .runner { background: url('/images/sam_run.gif') 0 0 no-repeat; }
+#highfive_overlay .xuedi .runner { background: url('/images/xuedi_run.gif') 0 0 no-repeat; }
+
+.hidden { display: none; }

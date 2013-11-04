@@ -14,15 +14,16 @@ block content
       h2 Current Scores:
       ul
         each player in players
-          li(class="#{player.id}")
-            p(class="name")= player.name
+          li(class=(player.score == topScore ? "#{player._id} happy" : "#{player._id} sad"))
+            p(class="face")= player.name
             p(class="score")= player.score
 
 
-  section(id="highfive_overlay")
+  section(id="highfive_overlay" class="hidden")
     h1 High Five in Progress!
+    h2 We're Coming For You!
     ul
       each player in players
-        li(class="#{player.id}")
-          p(class="name")= player.name
-          p(class="message")
+        li(class="#{player._id}")
+          p(class="runner")= player.name
+          p(class="message") test message

@@ -23,6 +23,7 @@ app.configure(function() {
 // Configuration for development only
 app.configure('development', function(){
   app.use(express.errorHandler());
+  app.locals.pretty = true;
 });
 
 // Setup routes
