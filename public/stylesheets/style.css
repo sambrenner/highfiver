@@ -5,7 +5,7 @@ h1 { margin-bottom: 16px; font-size: 160%; }
 h2 { font-size: 140%; }
 h3 { font-size: 120%; }
 
-#main_content { position: relative; width: 100%; }
+#main_content { position: relative; width: 1280px; }
 #main_content .db_section { margin-bottom: 12px; }
 
 header { margin-bottom: 30px; }
@@ -25,7 +25,7 @@ header h1 { color: #F30; font-size: 300%; }
 
 #highfive_overlay { background-color: #444; height: 100%; left: 0; position: absolute; top: 0; width: 100%; }
 #highfive_overlay h1 { color: #F30; font-size: 400%; text-transform: uppercase; }
-#highfive_overlay ul { bottom: 0; position: fixed; }
+#highfive_overlay ul { bottom: 0; position: fixed; width: 1280px; }
 #highfive_overlay ul li { display: inline-block; position: relative; }
 #highfive_overlay ul li .message { background-color: #FFF; border-radius: 20px; color: #222; max-width: 100px; min-width: 50px; padding: 20px; position: absolute; top: 50px; -webkit-transform: scale(1.5); -webkit-transition: all .4s cubic-bezier(1.000, 0.000, 0.005, 1.435); -webkit-transition-timing-function: cubic-bezier(1.000, 0.000, 0.005, 1.435); }
 #highfive_overlay ul li .message:after { border-color: transparent #FFF transparent transparent; border-style: solid; border-width: 0 15px 20px 0; bottom: -20px; content: ""; display: block; height: 0; position: absolute; right: 28px; width: 0; }
