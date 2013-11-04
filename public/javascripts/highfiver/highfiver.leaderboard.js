@@ -5,7 +5,8 @@ highfiver.leaderboard = (function(window,document) {
       _topScore = 0,
       _$players,
       _$runners,
-      _$overlay;
+      _$overlay,
+      _$textMessages;
 
   var _cacheSelectors = function() {
     _$players = {
@@ -21,6 +22,7 @@ highfiver.leaderboard = (function(window,document) {
     };
 
     _$overlay = $('#highfive_overlay');
+    _$textMessages = $('#highfive_overlay .message');
   };
 
   var _updateScoreFaces = function() {
@@ -32,19 +34,26 @@ highfiver.leaderboard = (function(window,document) {
   };
 
   var _handleGameBegin = function() {
-
+    _$overlay.removeClass('hidden');
   };
 
   var _handleGameEnd = function(winner) {
-    self.updateScores();
+    self.updateScores(function() {
+      _$overlay.addClass('hidden');
+    });
   };
 
   var _handleTextMessages = function(messages) {
     for(var key in messages) {
       if(key == 'status') continue;
-
-      _$runners[key].find('.message').text(messages[key]);
+      
+      var message = messages[key];
+      if(message != '') _$runners[key].find('.message').text(messages[key]).removeClass('hidden');
     }
+  };
+
+  var _hideTextMessages = function() {
+    _$textMessages.addClass('hidden');
   };
 
   var _initSocketIO = function() {
@@ -75,7 +84,7 @@ highfiver.leaderboard = (function(window,document) {
       _cacheSelectors();
       _initSocketIO();
     },
-    updateScores: function() {
+    updateScores: function(callback) {
       $.ajax({
         url: '/players'
       }).done(function(data) {
@@ -86,6 +95,8 @@ highfiver.leaderboard = (function(window,document) {
         }
 
         _updateScoreFaces();
+
+        if(callback) callback();
       });
     }
   };
