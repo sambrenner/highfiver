@@ -11,9 +11,9 @@ Skip any of the following steps if you have the thing already.
 * Install express globally: `sudo npm install -g express`
 * Install node packages: `npm install`
 * Install homebrew: `ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"`
-* Install mongodb (took a while for me): `brew install mongodb`
+* Install mongodb (took around 10 minutes for me): `brew install mongodb`
 * Run application: `node app`
-* Run mongo: `mongod`
+* Run mongod: `mongod`
 * Seed game players: <http://localhost:3000/players/seed>
 * Load application: <http://localhost:3000/>
 
@@ -22,9 +22,15 @@ To POST a new High Five:
 curl -i -X POST -H 'Content-Type: application/json' -d '{"strength":10}' http://localhost:3000/players/sam/highfives/add
 ```
 
-### Deploying the server
+### Deploying the server to Heroku
 
-Lorem
+1. Sign up for [Heroku](https://id.heroku.com/signup/www-home-top)
+* Install the [Heroku Toolbelt](https://toolbelt.herokuapp.com/)
+* Create a new app
+* Link your clone of this repo to your Heroku repo: `git remote add heroku git@heroku.com:your-app-name.git` 
+* Enable websockets on Heroku app: `heroku labs:enable websockets -a your-app-name`
+* Enable MongoLab on Heroku app (this might require you to verify your Heroku account): `heroku addons:add mongolab`
+* Push to Heroku: `git push heroku master`
 
 ### Running the Arduino Yun: ATmega side
 
