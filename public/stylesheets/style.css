@@ -23,8 +23,11 @@ header h1 { color: #F30; font-size: 300%; }
 #scores .sam.sad .face { background: url('/images/sam_sad.png') 0 0 no-repeat; }
 #scores .xuedi.sad .face { background: url('/images/xuedi_sad.png') 0 0 no-repeat; }
 
-#highfive_overlay { background-color: #444; height: 100%; left: 0; position: absolute; top: 0; width: 100%; }
-#highfive_overlay h1 { color: #F30; font-size: 400%; text-transform: uppercase; }
+#highfive_overlay,
+#winner_overlay { background-color: #444; height: 100%; left: 0; position: absolute; top: 0; width: 100%; }
+#highfive_overlay h1,
+#winner_overlay h1 { color: #F30; font-size: 400%; text-transform: uppercase; }
+
 #highfive_overlay ul { bottom: 0; position: fixed; width: 1280px; }
 #highfive_overlay ul li { display: inline-block; position: relative; }
 #highfive_overlay ul li .message { background-color: #FFF; border-radius: 20px; color: #222; max-width: 100px; min-width: 50px; padding: 20px; position: absolute; top: 50px; -webkit-transform: scale(1.5); -webkit-transition: all .4s cubic-bezier(1.000, 0.000, 0.005, 1.435); -webkit-transition-timing-function: cubic-bezier(1.000, 0.000, 0.005, 1.435); }
@@ -35,5 +38,11 @@ header h1 { color: #F30; font-size: 300%; }
 #highfive_overlay .adam .runner { background: url('/images/adam_run.gif') 0 0 no-repeat; }
 #highfive_overlay .sam .runner { background: url('/images/sam_run.gif') 0 0 no-repeat; }
 #highfive_overlay .xuedi .runner { background: url('/images/xuedi_run.gif') 0 0 no-repeat; }
+
+#winner_overlay h1 { font-size: 800%; }
+#winner_overlay h2 { font-size: 200%; }
+#winner_overlay img { -webkit-transition-property: -webkit-transform; -webkit-transition-duration: .6s; }
+#winner_overlay img.spin { -webkit-animation-name: rotate; -webkit-animation-duration: 1.5s; -webkit-animation-iteration-count: infinite; -webkit-animation-timing-function: linear; }
+@-webkit-keyframes rotate { from {-webkit-transform: rotate(0deg);} to {-webkit-transform: rotate(360deg);} }
 
 .hidden { display: none; }

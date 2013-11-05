@@ -3,12 +3,20 @@ var highfiver = highfiver || {};
 highfiver.leaderboard = (function(window,document) {
   var _socket,
       _topScore = 0,
+      _happyFaces,
       _$players,
       _$runners,
-      _$overlay,
+      _$runnerOverlay,
+      _$winnerOverlay,
       _$textMessages;
 
   var _cacheSelectors = function() {
+    _happyFaces = {
+      'adam': '/images/adam_happy.png',
+      'sam': '/images/sam_happy.png',
+      'xuedi': '/images/xuedi_happy.png'
+    };
+
     _$players = {
       'adam': $('#scores .adam'),
       'sam': $('#scores .sam'),
@@ -21,7 +29,8 @@ highfiver.leaderboard = (function(window,document) {
       'xuedi': $('#highfive_overlay .xuedi')
     };
 
-    _$overlay = $('#highfive_overlay');
+    _$runnerOverlay = $('#highfive_overlay');
+    _$winnerOverlay = $('#winner_overlay');
     _$textMessages = $('#highfive_overlay .message');
   };
 
@@ -34,13 +43,18 @@ highfiver.leaderboard = (function(window,document) {
   };
 
   var _handleGameBegin = function() {
-    _$overlay.removeClass('hidden');
+    _$runnerOverlay.removeClass('hidden');
   };
 
   var _handleGameOver = function(winner) {
-    self.updateScores(function() {
-      _$overlay.addClass('hidden');
-    });
+    self.updateScores();
+    _$runnerOverlay.addClass('hidden');
+    _$winnerOverlay.removeClass('hidden').find('h1').text(winner);
+    _$winnerOverlay.find('img').addClass('spin').attr('src', _happyFaces[winner]);
+
+    setTimeout(function() {
+      _$winnerOverlay.addClass('hidden');
+    }, 5000);
   };
 
   var _handleTextMessages = function(messages) {
@@ -98,6 +112,12 @@ highfiver.leaderboard = (function(window,document) {
 
         if(callback) callback();
       });
+    },
+    testGameBegin: function() {
+      _handleGameBegin();
+    },
+    testGameEnd: function() {
+      _handleGameOver('sam');
     }
   };
 
