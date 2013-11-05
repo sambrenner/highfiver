@@ -53,6 +53,7 @@ highfiver.leaderboard = (function(window,document) {
     _$winnerOverlay.find('img').addClass('spin').attr('src', _happyFaces[winner]);
 
     setTimeout(function() {
+      _hideTextMessages();
       _$winnerOverlay.addClass('hidden');
     }, 5000);
   };
@@ -67,7 +68,7 @@ highfiver.leaderboard = (function(window,document) {
   };
 
   var _hideTextMessages = function() {
-    _$textMessages.addClass('hidden');
+    _$textMessages.empty().addClass('hidden');
   };
 
   var _initSocketIO = function() {
