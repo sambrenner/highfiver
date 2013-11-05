@@ -42,7 +42,7 @@ Lorem
 
 ### Credits
 
-* Sam Brenner [Website](http://www.samjbrenner.com) [GitHub](http://github.com/sambrenner)
-* Xuedi Chen [Website](http://xc-xd.com) [GitHub](http://github.com/dooztron)
-* Adam Quinn [Website](http://www.adamquinnstudio.com) [GitHub](http://github.com/agquinn01)
+* Sam Brenner [Website](http://www.samjbrenner.com) / [GitHub](http://github.com/sambrenner)
+* Xuedi Chen [Website](http://xc-xd.com) / [GitHub](http://github.com/dooztron)
+* Adam Quinn [Website](http://www.adamquinnstudio.com) / [GitHub](http://github.com/agquinn01)
 
