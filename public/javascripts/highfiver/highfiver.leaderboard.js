@@ -87,7 +87,7 @@ highfiver.leaderboard = (function(window,document) {
           _handleTextMessages(msg);
           break;
         case 2:
-          _handleGameOver(msg.winner);
+          _handleGameOver(msg.win);
           break;
       }
     });
@@ -117,7 +117,7 @@ highfiver.leaderboard = (function(window,document) {
       _handleGameBegin();
     },
     testGameEnd: function() {
-      _handleGameOver('sam');
+      _handleGameOver('adam');
     }
   };
 
