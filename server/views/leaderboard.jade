@@ -11,12 +11,12 @@ block content
       p Adam, Sam and Xuedi will race each other here to deliver it. 
 
     div(id="scores")
-      h2 Current Scores:
       ul
         each player in players
           li(class=(player.score == topScore ? "#{player._id} happy" : "#{player._id} sad"))
             p(class="face")= player.name
             p(class="score")= player.score
+      h2 High Fives Completed!
 
 
   section(id="highfive_overlay" class="hidden")
