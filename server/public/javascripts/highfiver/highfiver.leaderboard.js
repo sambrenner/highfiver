@@ -4,11 +4,13 @@ highfiver.leaderboard = (function(window,document) {
   var _socket,
       _topScore = 0,
       _happyFaces,
+      _$container,
       _$players,
       _$runners,
       _$runnerOverlay,
       _$winnerOverlay,
-      _$textMessages;
+      _$textMessages,
+      _halfContainerHeight;
 
   var _cacheSelectors = function() {
     _happyFaces = {
@@ -32,6 +34,7 @@ highfiver.leaderboard = (function(window,document) {
     _$runnerOverlay = $('#highfive_overlay');
     _$winnerOverlay = $('#winner_overlay');
     _$textMessages = $('#highfive_overlay .message');
+    _$container = $('#main_content');
   };
 
   var _updateScoreFaces = function() {
@@ -94,10 +97,22 @@ highfiver.leaderboard = (function(window,document) {
     });
   };
 
+  var _bindWindowResize = function() {
+    _$container.css('position', 'absolute');
+    _halfContainerHeight = _$container.height() / 2
+
+    $(window).resize(function() {
+      _$container.css('top', $(window).height() / 2 - _halfContainerHeight);
+    });
+
+    $(window).resize();
+  };
+
   var self = {
     init: function() {
       _cacheSelectors();
       _initSocketIO();
+      _bindWindowResize();
     },
     updateScores: function(callback) {
       $.ajax({
