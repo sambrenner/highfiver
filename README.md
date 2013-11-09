@@ -12,7 +12,7 @@ Skip any of the following steps if you have the thing already.
 * Install node packages: `npm install`
 * Install homebrew: `ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"`
 * Install mongodb (took around 10 minutes for me): `brew install mongodb`
-* Run application: `node app`
+* Run application: `node server/app` (once you have the [Heroku Toolbelt](https://toolbelt.herokuapp.com/) installed you can alternatively use `foreman start`)
 * Run mongod: `mongod`
 * Seed game players: <http://localhost:3000/players/seed>
 * Load application: <http://localhost:3000/>
