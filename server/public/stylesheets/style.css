@@ -8,8 +8,9 @@ h3 { font-size: 120%; }
 #main_content { position: relative; width: 1280px; }
 #main_content .db_section { margin-bottom: 12px; }
 
-header { margin-bottom: 30px; }
+header { margin-bottom: 50px; }
 header h1 { color: #F30; font-size: 300%; }
+header p { font-size: 180%; }
 
 #scores h2 { font-size: 300%; }
 #scores .face { display: block; height: 355px; text-indent: -9999em; width: 375px; }
