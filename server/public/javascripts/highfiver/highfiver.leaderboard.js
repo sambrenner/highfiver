@@ -134,6 +134,9 @@ highfiver.leaderboard = (function(window,document) {
     },
     testGameEnd: function() {
       _handleGameOver('adam');
+    },
+    testTextMessages: function() {
+      _handleTextMessages({"xuedi": "I'm on my way!"});
     }
   };
 
